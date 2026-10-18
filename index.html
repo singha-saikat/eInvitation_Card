@@ -558,6 +558,40 @@
         font-weight: 600;
         text-decoration: none;
       }
+      .i {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      #ob,
+      #mt,
+      #as,
+      #lg,
+      #aiz {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+      }
+      #ob .i {
+        width: 22px;
+        height: 22px;
+        stroke-width: 1.6;
+      }
+      #mt .i,
+      #as .i {
+        width: 17px;
+        height: 17px;
+      }
+      #aiz .i {
+        width: 16px;
+        height: 16px;
+      }
       footer {
         padding: 20px 16px 90px;
         color: var(--g);
@@ -855,6 +889,85 @@
     </style>
   </head>
   <body>
+    <svg id="ic" hidden aria-hidden="true">
+      <symbol id="ic-lotus" viewBox="0 0 24 24">
+        <path
+          d="M12 4.5c1.9 2.4 2.8 4.5 2.8 6.2 0 2-1.2 3.6-2.8 4.3-1.6-.7-2.8-2.3-2.8-4.3 0-1.7.9-3.8 2.8-6.2Z"
+        />
+        <path
+          d="M12 15c-2.6 0-4.8-1.2-6.3-3.2-.4 1-.6 2-.6 3.1 0 2.9 3.1 5.1 6.9 5.1s6.9-2.2 6.9-5.1c0-1.1-.2-2.1-.6-3.1C16.8 13.8 14.6 15 12 15Z"
+        />
+      </symbol>
+      <symbol id="ic-music" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.2L11 6.2v11.6L7.2 14.5H4z" />
+        <path d="M15 9.2a4 4 0 0 1 0 5.6" />
+        <path d="M17.9 6.6a7.6 7.6 0 0 1 0 10.8" />
+      </symbol>
+      <symbol id="ic-mute" viewBox="0 0 24 24">
+        <path d="M4 9.5h3.2L11 6.2v11.6L7.2 14.5H4z" />
+        <path d="M15.5 9.8 19.9 14.2M19.9 9.8 15.5 14.2" />
+      </symbol>
+      <symbol id="ic-down" viewBox="0 0 24 24">
+        <path d="M12 4v13.5" />
+        <path d="M6.5 12 12 17.5 17.5 12" />
+        <path d="M5 20.5h14" />
+      </symbol>
+      <symbol id="ic-pause" viewBox="0 0 24 24">
+        <path d="M9.2 5v14M14.8 5v14" />
+      </symbol>
+      <symbol id="ic-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M3.5 12h17" />
+        <path
+          d="M12 3.5c2.4 2.6 3.6 5.4 3.6 8.5S14.4 18.9 12 20.5c-2.4-2.6-3.6-5.4-3.6-8.5S9.6 6.1 12 3.5Z"
+        />
+      </symbol>
+      <symbol id="ic-pin" viewBox="0 0 24 24">
+        <path
+          d="M12 21s6.8-5.6 6.8-10.8a6.8 6.8 0 1 0-13.6 0C5.2 15.4 12 21 12 21Z"
+        />
+        <circle cx="12" cy="10.2" r="2.5" />
+      </symbol>
+      <symbol id="ic-cal" viewBox="0 0 24 24">
+        <rect x="3.5" y="5.5" width="17" height="15" rx="2.6" />
+        <path d="M3.5 10.5h17" />
+        <path d="M8 3.5v4M16 3.5v4" />
+      </symbol>
+      <symbol id="ic-wa" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          stroke="none"
+          d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.42a9.9 9.9 0 0 0 4.64 1.18c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.02c-1.49 0-2.88-.4-4.09-1.11l-.29-.17-3.03.79.81-2.96-.19-.31a8.06 8.06 0 0 1-1.23-4.35c0-4.47 3.64-8.11 8.11-8.11s8.11 3.64 8.11 8.11-3.64 8.11-8.11 8.11Zm4.51-6.03c-.25-.12-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12s-.64.8-.79.97c-.14.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.83-.2-.48-.4-.42-.56-.42h-.47c-.17 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1.01 2.55c.12.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28Z"
+        />
+      </symbol>
+      <symbol id="ic-share" viewBox="0 0 24 24">
+        <path d="M12 15.5V3.5" />
+        <path d="M7.8 7.7 12 3.5l4.2 4.2" />
+        <path d="M5 13.5v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" />
+      </symbol>
+      <symbol id="ic-fb" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5.2" />
+        <path
+          fill="currentColor"
+          stroke="none"
+          d="M13.4 21v-8.2h2.76l.41-3.2H13.4V7.55c0-.93.26-1.56 1.59-1.56h1.7V3.12c-.29-.04-1.3-.12-2.47-.12-2.46 0-4.14 1.5-4.14 4.25v2.35H7.3v3.2h2.78V21Z"
+        />
+      </symbol>
+      <symbol id="ic-link" viewBox="0 0 24 24">
+        <path
+          d="M10.6 13.4a3.5 3.5 0 0 0 5 0l3-3a3.54 3.54 0 0 0-5-5l-1.2 1.2"
+        />
+        <path
+          d="M13.4 10.6a3.5 3.5 0 0 0-5 0l-3 3a3.54 3.54 0 0 0 5 5l1.2-1.2"
+        />
+      </symbol>
+      <symbol id="ic-check" viewBox="0 0 24 24">
+        <path d="M4.8 12.6 9.6 17.4 19.2 6.8" />
+      </symbol>
+      <symbol id="ic-x" viewBox="0 0 24 24">
+        <path d="M6 6 18 18M18 6 6 18" />
+      </symbol>
+    </svg>
     <div id="pg"></div>
     <noscript>
       <style>
@@ -882,16 +995,30 @@
     <div id="open">
       <p>জয়তু বুদ্ধ সাসনম</p>
       <p class="hi" id="hi" hidden></p>
-      <button id="ob">🪷 আমন্ত্রণপত্র খুলুন</button>
+      <button id="ob">
+        <svg class="i" aria-hidden="true"><use href="#ic-lotus" /></svg>
+        <span class="tx">আমন্ত্রণপত্র খুলুন</span>
+      </button>
     </div>
-    <button id="mt" aria-label="Music">🔊 গান বন্ধ করুন</button>
-    <button id="as" aria-label="Auto scroll">⏬ অটো স্ক্রল চালু</button>
-    <button id="lg" type="button" aria-label="Language">🌐 English</button>
+    <button id="mt" aria-label="Music">
+      <svg class="i" aria-hidden="true"><use href="#ic-music" /></svg>
+      <span class="tx">গান বন্ধ করুন</span>
+    </button>
+    <button id="as" aria-label="Auto scroll">
+      <svg class="i" aria-hidden="true"><use href="#ic-down" /></svg>
+      <span class="tx">অটো স্ক্রল চালু</span>
+    </button>
+    <button id="lg" type="button" aria-label="Language">
+      <svg class="i" aria-hidden="true"><use href="#ic-globe" /></svg>
+      <span class="tx">English</span>
+    </button>
     <div id="yp"><div id="yf"></div></div>
     <div id="ai" hidden>
       <span id="aix"></span>
       <button id="aib" type="button" hidden>যোগ করুন</button>
-      <button id="aiz" type="button" aria-label="বন্ধ করুন">✕</button>
+      <button id="aiz" type="button" aria-label="বন্ধ করুন">
+        <svg class="i" aria-hidden="true"><use href="#ic-x" /></svg>
+      </button>
     </div>
 
     <div class="cover">
@@ -1002,10 +1129,12 @@
         </p>
         <div class="actions">
           <a class="btn" id="dir" target="_blank" rel="noopener"
-            >📍 দিকনির্দেশনা</a
+            ><svg class="i" aria-hidden="true"><use href="#ic-pin" /></svg
+            ><span class="tx">দিকনির্দেশনা</span></a
           >
           <a class="btn" id="cal" target="_blank" rel="noopener"
-            >🗓️ ক্যালেন্ডারে যোগ করুন</a
+            ><svg class="i" aria-hidden="true"><use href="#ic-cal" /></svg
+            ><span class="tx">ক্যালেন্ডারে যোগ করুন</span></a
           >
         </div>
         <div class="qr">
@@ -1025,12 +1154,22 @@
     <footer class="r">
       <span id="ft">সকলের মঙ্গল হোক 🙏<br />সাধু সাধু সাধু</span>
       <div class="actions">
-        <button class="btn" id="sh" type="button" hidden>📤 শেয়ার</button>
+        <button class="btn" id="sh" type="button" hidden>
+          <svg class="i" aria-hidden="true"><use href="#ic-share" /></svg>
+          <span class="tx">শেয়ার</span>
+        </button>
         <a class="btn" id="wa" target="_blank" rel="noopener"
-          >💬 হোয়াটসঅ্যাপে শেয়ার</a
+          ><svg class="i" aria-hidden="true"><use href="#ic-wa" /></svg
+          ><span class="tx">হোয়াটসঅ্যাপে শেয়ার</span></a
         >
-        <a class="btn" id="fb" target="_blank" rel="noopener">📘 ফেসবুক</a>
-        <button class="btn" id="cp" type="button">🔗 লিংক কপি</button>
+        <a class="btn" id="fb" target="_blank" rel="noopener"
+          ><svg class="i" aria-hidden="true"><use href="#ic-fb" /></svg
+          ><span class="tx">ফেসবুক</span></a
+        >
+        <button class="btn" id="cp" type="button">
+          <svg class="i" aria-hidden="true"><use href="#ic-link" /></svg>
+          <span class="tx">লিংক কপি</span>
+        </button>
       </div>
     </footer>
 
@@ -1157,6 +1296,14 @@
       function $(i) {
         return document.getElementById(i);
       }
+      function tx(i, s) {
+        var e = $(i).querySelector(".tx");
+        if (e) e.textContent = s;
+      }
+      function ic(i, n) {
+        var u = $(i).querySelector("use");
+        if (u) u.setAttribute("href", "#" + n);
+      }
       function rows(a) {
         return a
           .map(function (r) {
@@ -1253,13 +1400,15 @@
       }
       function start() {
         on = true;
-        $("mt").textContent = T("🔊 গান বন্ধ করুন", "🔊 Turn music off");
+        tx("mt", T("গান বন্ধ করুন", "Turn music off"));
+        ic("mt", "ic-music");
         var p = au.play();
         if (p && p.catch) p.catch(yt);
       }
       function stop() {
         on = false;
-        $("mt").textContent = T("🔇 গান চালু করুন", "🔇 Turn music on");
+        tx("mt", T("গান চালু করুন", "Turn music on"));
+        ic("mt", "ic-mute");
         au.pause();
         $("yf").innerHTML = "";
         $("yp").style.display = "none";
@@ -1292,13 +1441,15 @@
         sc = true;
         sy = window.scrollY;
         lt = 0;
-        $("as").textContent = T("⏸ অটো স্ক্রল বন্ধ", "⏸ Pause auto-scroll");
+        tx("as", T("অটো স্ক্রল বন্ধ", "Pause auto-scroll"));
+        ic("as", "ic-pause");
         requestAnimationFrame(sloop);
       }
       function sstop() {
         sc = false;
         document.documentElement.style.scrollBehavior = "";
-        $("as").textContent = T("⏬ অটো স্ক্রল চালু", "⏬ Start auto-scroll");
+        tx("as", T("অটো স্ক্রল চালু", "Start auto-scroll"));
+        ic("as", "ic-down");
       }
       $("as").onclick = function () {
         sc ? sstop() : sgo();
@@ -1375,11 +1526,12 @@
           encodeURIComponent(URLX);
       }
       $("cp").onclick = function () {
-        var b = this;
         function ok() {
-          b.textContent = T("✅ কপি হয়েছে", "✅ Copied");
+          tx("cp", T("কপি হয়েছে", "Copied"));
+          ic("cp", "ic-check");
           setTimeout(function () {
-            b.textContent = T("🔗 লিংক কপি", "🔗 Copy link");
+            tx("cp", T("লিংক কপি", "Copy link"));
+            ic("cp", "ic-link");
           }, 1800);
         }
         function legacy() {
@@ -1426,7 +1578,7 @@
 
       /* ---------- বাংলা / English ---------- */
       var I18N = [
-        ["#ob", ["🪷 Open the Invitation"]],
+        ["#ob .tx", ["Open the Invitation"]],
         [
           ".cover .s",
           ["National and religious festival of Theravada Buddhists"],
@@ -1463,12 +1615,12 @@
         [".note", ["Venerable Sangha visiting from Sri Lanka"]],
         [".qr p", ["Scan to open the invitation card"]],
         ["#ft", ["May all beings be well 🙏<br />Sādhu Sādhu Sādhu"], 1],
-        ["#dir", ["📍 Directions"]],
-        ["#cal", ["🗓️ Add to calendar"]],
-        ["#wa", ["💬 Share on WhatsApp"]],
-        ["#sh", ["📤 Share"]],
-        ["#fb", ["📘 Facebook"]],
-        ["#cp", ["🔗 Copy link"]],
+        ["#dir .tx", ["Directions"]],
+        ["#cal .tx", ["Add to calendar"]],
+        ["#wa .tx", ["Share on WhatsApp"]],
+        ["#sh .tx", ["Share"]],
+        ["#fb .tx", ["Facebook"]],
+        ["#cp .tx", ["Copy link"]],
         ["#aib", ["Add"]],
       ];
       var i18n = [];
@@ -1494,13 +1646,19 @@
         document.title = L === "en" ? ENTTL : BNTTL;
         $("am").innerHTML = rows(A);
         $("pm").innerHTML = rows(P);
-        $("lg").textContent = L === "en" ? "🌐 বাংলা" : "🌐 English";
-        $("mt").textContent = on
-          ? T("🔊 গান বন্ধ করুন", "🔊 Turn music off")
-          : T("🔇 গান চালু করুন", "🔇 Turn music on");
-        $("as").textContent = sc
-          ? T("⏸ অটো স্ক্রল বন্ধ", "⏸ Pause auto-scroll")
-          : T("⏬ অটো স্ক্রল চালু", "⏬ Start auto-scroll");
+        tx("lg", L === "en" ? "বাংলা" : "English");
+        tx(
+          "mt",
+          on
+            ? T("গান বন্ধ করুন", "Turn music off")
+            : T("গান চালু করুন", "Turn music on"),
+        );
+        tx(
+          "as",
+          sc
+            ? T("অটো স্ক্রল বন্ধ", "Pause auto-scroll")
+            : T("অটো স্ক্রল চালু", "Start auto-scroll"),
+        );
         setHi();
         setLinks();
         hintText();
