@@ -628,16 +628,56 @@
       }
       #sp i {
         position: fixed;
-        bottom: -10px;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: #ffd978;
-        box-shadow: 0 0 24px 8px #e3a72f;
+        bottom: -34px;
+        width: 18px;
+        height: 26px;
+        border-radius: 46% 46% 46% 46% / 34% 34% 34% 34%;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            transparent 0 4px,
+            #ffffff2e 4px 5px
+          ),
+          radial-gradient(
+            ellipse at 50% 34%,
+            #fff2c4 0%,
+            #ffd46a 38%,
+            #e3a72f 72%,
+            #b8791a 100%
+          );
+        box-shadow:
+          0 0 24px 8px #e3a72f,
+          inset 0 0 5px 1px #fff6df99;
         opacity: 0;
         animation: rise linear infinite;
         pointer-events: none;
         z-index: 1;
+      }
+      /* লণ্ঠনের উপরের ধাতব ক্যাপ */
+      #sp i::before {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: 50%;
+        width: 8px;
+        height: 4px;
+        transform: translateX(-50%);
+        border-radius: 2px;
+        background: #c9861c;
+        box-shadow: 0 0 6px 2px #e3a72f88;
+      }
+      /* লণ্ঠনের নিচের ট্যাসেল */
+      #sp i::after {
+        content: "";
+        position: absolute;
+        bottom: -7px;
+        left: 50%;
+        width: 2px;
+        height: 8px;
+        transform: translateX(-50%);
+        border-radius: 1px;
+        background: linear-gradient(#e3a72f, #b8791a);
+        box-shadow: 0 0 6px 2px #e3a72f66;
       }
       @keyframes rise {
         10% {
