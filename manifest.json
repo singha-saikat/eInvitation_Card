@@ -1,0 +1,33 @@
+{
+  "name": "দানোত্তম শুভ কঠিন চীবরদান ও ফ্রাইডে ধাম্মা স্কুল ভবন উদ্বোধন – ২০২৬",
+  "short_name": "চীবরদান ২০২৬",
+  "description": "১৬ নভেম্বর ২০২৬ · দুপচর তক্ষশীলা বৌদ্ধ বিহার প্রাঙ্গণ, লাকসাম, কুমিল্লা।",
+  "lang": "bn",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#140707",
+  "theme_color": "#140707",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
