@@ -21,12 +21,18 @@
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
     <link rel="manifest" href="manifest.json" />
-    <link rel="preload" as="image" href="images/cover-1200.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap"
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="images/cover-1200.webp"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="fonts/hind-siliguri-400-bengali.woff2"
+      crossorigin
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="bn_BD" />
@@ -93,9 +99,89 @@
       }
     </script>
     <style>
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-400-bengali.woff2") format("woff2");
+        unicode-range:
+          U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2, U+1CD5-1CD6,
+          U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7, U+200C-200D,
+          U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1;
+      }
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-400-latin.woff2") format("woff2");
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-400-latin-ext.woff2") format("woff2");
+        unicode-range:
+          U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+          U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+          U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-600-bengali.woff2") format("woff2");
+        unicode-range:
+          U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2, U+1CD5-1CD6,
+          U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7, U+200C-200D,
+          U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1;
+      }
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-600-latin.woff2") format("woff2");
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-700-bengali.woff2") format("woff2");
+        unicode-range:
+          U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2, U+1CD5-1CD6,
+          U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7, U+200C-200D,
+          U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1;
+      }
+      @font-face {
+        font-family: "Hind Siliguri";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("fonts/hind-siliguri-700-latin.woff2") format("woff2");
+        unicode-range:
+          U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+          U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
       * {
         box-sizing: border-box;
         margin: 0;
+      }
+      [hidden] {
+        display: none !important;
       }
       :root {
         --g: #e3a72f;
@@ -145,6 +231,13 @@
         background:
           linear-gradient(#140707cc, #140707ee),
           url("images/cover-1200.jpg") center/cover;
+        background:
+          linear-gradient(#140707cc, #140707ee),
+          image-set(
+              url("images/cover-1200.webp") type("image/webp"),
+              url("images/cover-1200.jpg") type("image/jpeg")
+            )
+            center/cover;
         transition: opacity 0.8s;
       }
       #open p {
@@ -177,6 +270,18 @@
           url("images/cover-1200.jpg") top center/min(100%, 894px) auto
             no-repeat,
           #140707;
+        background:
+          linear-gradient(
+            #14070800 0,
+            #14070800 calc(var(--ih) - 110px),
+            #140707 var(--ih)
+          ),
+          image-set(
+              url("images/cover-1200.webp") type("image/webp"),
+              url("images/cover-1200.jpg") type("image/jpeg")
+            )
+            top center/min(100%, 894px) auto no-repeat,
+          #140707;
       }
       .wh {
         width: 60px;
@@ -208,11 +313,28 @@
         font-weight: 700;
         border-top: 2px solid var(--g);
         border-bottom: 2px solid var(--g);
-        background: linear-gradient(#fff4dc, #f3c04e 70%, #c9821a);
+        background: linear-gradient(
+          100deg,
+          #d99b28 0%,
+          #f0b93f 35%,
+          #fff6df 50%,
+          #f0b93f 65%,
+          #d99b28 100%
+        );
+        background-size: 220% 100%;
+        animation: shim 9s ease-in-out infinite alternate;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         filter: drop-shadow(0 2px 8px #000);
+      }
+      @keyframes shim {
+        from {
+          background-position: 100% 0;
+        }
+        to {
+          background-position: 0% 0;
+        }
       }
       h1 em {
         font-style: normal;
@@ -526,16 +648,124 @@
           opacity: 0;
         }
       }
+      #lg {
+        position: fixed;
+        top: calc(106px + env(safe-area-inset-top, 0px));
+        right: 12px;
+        z-index: 40;
+        height: 38px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid var(--g);
+        background: #140707dd;
+        color: var(--cr);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .hi {
+        max-width: 88vw;
+        font-size: 17px;
+        color: #ffe9b0;
+      }
+      .qr {
+        margin-top: 22px;
+      }
+      .qr img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 8px;
+        border: 1px solid #e3a72f88;
+        border-radius: 8px;
+        background: #fffaf0;
+      }
+      .qr p {
+        font-size: 14px;
+        color: #6a4a30;
+      }
+      #pt {
+        position: fixed;
+        inset: 0;
+        z-index: 55;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      #pt i {
+        position: absolute;
+        top: -5vh;
+        font-size: 22px;
+        font-style: normal;
+        color: #ffd978;
+        text-shadow: 0 0 10px #e3a72f;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        0% {
+          opacity: 0;
+          transform: translate3d(0, 0, 0) rotate(0) scale(0.6);
+        }
+        14% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translate3d(var(--dx, 0px), 110vh, 0)
+            rotate(var(--ro, 360deg)) scale(1);
+        }
+      }
+      #ai {
+        position: fixed;
+        right: 12px;
+        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        z-index: 45;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        max-width: min(92vw, 380px);
+        padding: 10px 12px;
+        background: #140707f2;
+        border: 1px solid var(--g);
+        border-radius: 12px;
+        box-shadow: 0 6px 24px #000a;
+        text-align: left;
+      }
+      #ai span {
+        flex: 1;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      #aib {
+        border: 1px solid var(--g);
+        border-radius: 999px;
+        padding: 6px 12px;
+        background: var(--g);
+        color: #3a1208;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      #aiz {
+        padding: 0 4px;
+        border: 0;
+        background: none;
+        color: var(--cr);
+        font-size: 16px;
+      }
       @media (prefers-reduced-motion: reduce) {
         html {
           scroll-behavior: auto;
         }
         #sp,
+        #pt,
         .dn {
           display: none;
         }
         .wh {
           animation: none;
+        }
+        h1 {
+          animation: none;
+          background-position: 0 0;
+          background-size: 100% 100%;
         }
         .r {
           opacity: 1;
@@ -549,6 +779,9 @@
         #open,
         #mt,
         #as,
+        #lg,
+        #ai,
+        #pt,
         #yp,
         .dn,
         .actions {
@@ -590,6 +823,9 @@
         #pg,
         #mt,
         #as,
+        #lg,
+        #ai,
+        #pt,
         #yp,
         .dn,
         .actions {
@@ -602,13 +838,21 @@
       </style>
     </noscript>
     <div id="sp"></div>
+    <div id="pt" aria-hidden="true"></div>
     <div id="open">
       <p>জয়তু বুদ্ধ সাসনম</p>
+      <p class="hi" id="hi" hidden></p>
       <button id="ob">🪷 আমন্ত্রণপত্র খুলুন</button>
     </div>
     <button id="mt" aria-label="Music">🔊 গান বন্ধ করুন</button>
     <button id="as" aria-label="Auto scroll">⏬ অটো স্ক্রল চালু</button>
+    <button id="lg" type="button" aria-label="Language">🌐 English</button>
     <div id="yp"><div id="yf"></div></div>
+    <div id="ai" hidden>
+      <span id="aix"></span>
+      <button id="aib" type="button" hidden>যোগ করুন</button>
+      <button id="aiz" type="button" aria-label="বন্ধ করুন">✕</button>
+    </div>
 
     <div class="cover">
       <svg
@@ -724,15 +968,28 @@
             >🗓️ ক্যালেন্ডারে যোগ করুন</a
           >
         </div>
+        <div class="qr">
+          <img
+            src="images/qr.svg"
+            alt="আমন্ত্রণ কার্ডের QR কোড"
+            width="150"
+            height="150"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>স্ক্যান করে কার্ডটি খুলুন</p>
+        </div>
       </div>
     </section>
 
     <footer class="r">
-      সকলের মঙ্গল হোক 🙏<br />সাধু সাধু সাধু
+      <span id="ft">সকলের মঙ্গল হোক 🙏<br />সাধু সাধু সাধু</span>
       <div class="actions">
+        <button class="btn" id="sh" type="button" hidden>📤 শেয়ার</button>
         <a class="btn" id="wa" target="_blank" rel="noopener"
           >💬 হোয়াটসঅ্যাপে শেয়ার</a
         >
+        <a class="btn" id="fb" target="_blank" rel="noopener">📘 ফেসবুক</a>
         <button class="btn" id="cp" type="button">🔗 লিংক কপি</button>
       </div>
     </footer>
@@ -834,6 +1091,29 @@
           "Teacher of Maharagama Bhikkhu Training Center, Colombo",
         ],
       ];
+      var ROLES = {
+        সভাপতি: "President",
+        "প্রধান অতিথি": "Chief Guest",
+        "প্রধান জ্ঞাতি": "Chief Relative",
+        উদ্বোধক: "Inaugurator",
+        আশীর্বাদক: "Blessing",
+        "প্রধান সদ্ধর্মদেশক": "Chief Dhamma Preacher",
+        "বিশেষ সদ্ধর্মদেশক": "Special Dhamma Preacher",
+        "মুখ্য আলোচক": "Key Speaker",
+        সদ্ধর্মদেশক: "Dhamma Preacher",
+        মঙ্গলাচরণ: "Opening Chant",
+        "স্বাগত ভাষণ": "Welcome Address",
+        "পঞ্চশীল প্রার্থনা": "Five Precepts",
+        "ধন্যবাদ জ্ঞাপন": "Vote of Thanks",
+        সঞ্চালনায়: "Conducted by",
+      };
+      var L = "bn",
+        BNTTL = document.title,
+        ENTTL =
+          "Danottama Shubho Kathina Chibor Dan & Inauguration of the New Friday Dhamma School Building – 2026";
+      function T(bn, en) {
+        return L === "en" ? en : bn;
+      }
       function $(i) {
         return document.getElementById(i);
       }
@@ -842,7 +1122,7 @@
           .map(function (r) {
             return (
               '<div class="row"><span>' +
-              r[0] +
+              (L === "en" && ROLES[r[0]] ? ROLES[r[0]] : r[0]) +
               "</span>" +
               r[1]
                 .split("|")
@@ -933,13 +1213,13 @@
       }
       function start() {
         on = true;
-        $("mt").textContent = "🔊 গান বন্ধ করুন";
+        $("mt").textContent = T("🔊 গান বন্ধ করুন", "🔊 Turn music off");
         var p = au.play();
         if (p && p.catch) p.catch(yt);
       }
       function stop() {
         on = false;
-        $("mt").textContent = "🔇 গান চালু করুন";
+        $("mt").textContent = T("🔇 গান চালু করুন", "🔇 Turn music on");
         au.pause();
         $("yf").innerHTML = "";
         $("yp").style.display = "none";
@@ -972,13 +1252,13 @@
         sc = true;
         sy = window.scrollY;
         lt = 0;
-        $("as").textContent = "⏸ অটো স্ক্রল বন্ধ";
+        $("as").textContent = T("⏸ অটো স্ক্রল বন্ধ", "⏸ Pause auto-scroll");
         requestAnimationFrame(sloop);
       }
       function sstop() {
         sc = false;
         document.documentElement.style.scrollBehavior = "";
-        $("as").textContent = "⏬ অটো স্ক্রল চালু";
+        $("as").textContent = T("⏬ অটো স্ক্রল চালু", "⏬ Start auto-scroll");
       }
       $("as").onclick = function () {
         sc ? sstop() : sgo();
@@ -1006,6 +1286,8 @@
           o.style.display = "none";
         }, 800);
         document.documentElement.style.overflow = "";
+        burst();
+        chime();
         start();
         if (rm) return;
         setTimeout(function () {
@@ -1022,30 +1304,42 @@
       addEventListener("resize", updPg);
       updPg();
 
-      var PLACE = "দুপচর তক্ষশীলা বৌদ্ধ বিহার প্রাঙ্গণ, লাকসাম, কুমিল্লা";
-      $("dir").href =
-        "https://www.google.com/maps/search/?api=1&query=" +
-        encodeURIComponent(PLACE);
-      $("cal").href =
-        "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
-        encodeURIComponent(document.title) +
-        "&dates=20261116/20261117&location=" +
-        encodeURIComponent(PLACE);
-      $("wa").href =
-        "https://wa.me/?text=" +
-        encodeURIComponent(
-          document.title +
-            " – ১৬ নভেম্বর ২০২৬, " +
-            PLACE +
-            "\n" +
-            location.href,
+      var PLACE = "দুপচর তক্ষশীলা বৌদ্ধ বিহার প্রাঙ্গণ, লাকসাম, কুমিল্লা",
+        URLX = location.href.split("#")[0],
+        SHARE = "";
+      function setLinks() {
+        var place = T(
+          PLACE,
+          "Dupchara Takshashila Buddhist Vihara premises, Laksam, Cumilla",
         );
+        $("dir").href =
+          "https://www.google.com/maps/search/?api=1&query=" +
+          encodeURIComponent(PLACE);
+        $("cal").href =
+          "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
+          encodeURIComponent(document.title) +
+          "&dates=20261116/20261117&location=" +
+          encodeURIComponent(place) +
+          "&details=" +
+          encodeURIComponent(URLX);
+        SHARE =
+          (guest ? T("প্রিয় ", "Dear ") + guest + ", " : "") +
+          document.title +
+          T(" – ১৬ নভেম্বর ২০২৬, ", " – 16 November 2026, ") +
+          place +
+          "\n" +
+          URLX;
+        $("wa").href = "https://wa.me/?text=" + encodeURIComponent(SHARE);
+        $("fb").href =
+          "https://www.facebook.com/sharer/sharer.php?u=" +
+          encodeURIComponent(URLX);
+      }
       $("cp").onclick = function () {
         var b = this;
         function ok() {
-          b.textContent = "✅ কপি হয়েছে";
+          b.textContent = T("✅ কপি হয়েছে", "✅ Copied");
           setTimeout(function () {
-            b.textContent = "🔗 লিংক কপি";
+            b.textContent = T("🔗 লিংক কপি", "🔗 Copy link");
           }, 1800);
         }
         function legacy() {
@@ -1065,6 +1359,260 @@
           legacy();
         }
       };
+
+      /* ---------- অতিথির নাম (?guest=নাম) ---------- */
+      var guest = "";
+      (function () {
+        var m = /[?&](?:guest|g)=([^&]*)/.exec(location.search);
+        if (!m) return;
+        var v = m[1].replace(/\+/g, " ");
+        try {
+          v = decodeURIComponent(v);
+        } catch (e) {}
+        guest = v.replace(/[<>]/g, "").trim().slice(0, 40);
+      })();
+      function setHi() {
+        var el = $("hi");
+        if (!guest) {
+          el.hidden = true;
+          return;
+        }
+        el.textContent = T(
+          "প্রিয় " + guest + ", আপনার জন্য বিশেষ আমন্ত্রণ 🌸",
+          "Dear " + guest + ", a special invitation for you 🌸",
+        );
+        el.hidden = false;
+      }
+
+      /* ---------- বাংলা / English ---------- */
+      var I18N = [
+        ["#ob", ["🪷 Open the Invitation"]],
+        [
+          ".cover .s",
+          ["National and religious festival of Theravada Buddhists"],
+        ],
+        [
+          "h1",
+          [
+            "Danottama Shubho <em>Kathina Chibor Dan</em> &amp; Inauguration of the Newly Built Friday Dhamma School Building",
+          ],
+          1,
+        ],
+        [".date", ["16 November 2026"]],
+        [
+          ".pl",
+          ["Dupchara Takshashila Buddhist Vihara premises, Laksam, Cumilla"],
+        ],
+        [".grid .u .l", ["Days", "Hours", "Minutes", "Seconds"]],
+        ["#done", ["Today is the auspicious day! 🙏"]],
+        [".dn", ["Scroll down ↓"]],
+        [
+          "section .paper h2",
+          ["Cordial Invitation", "Programme", "Honoured Guests", "Venue"],
+        ],
+        ["section .paper .tag", ["Morning", "Afternoon"]],
+        [
+          "section .paper p.t",
+          [
+            "Namo tassa bhagavato arahato sammāsambuddhassa<br />I earnestly request the gracious presence of you and your family at this meritorious occasion.",
+            "<b>Dupchara Takshashila Buddhist Vihara premises</b><br />Laksam, Cumilla<br />16 November 2026",
+          ],
+          1,
+        ],
+        [".flkcap", ["Sri Lanka × Bangladesh"]],
+        [".note", ["Venerable Sangha visiting from Sri Lanka"]],
+        [".qr p", ["Scan to open the invitation card"]],
+        ["#ft", ["May all beings be well 🙏<br />Sādhu Sādhu Sādhu"], 1],
+        ["#dir", ["📍 Directions"]],
+        ["#cal", ["🗓️ Add to calendar"]],
+        ["#wa", ["💬 Share on WhatsApp"]],
+        ["#sh", ["📤 Share"]],
+        ["#fb", ["📘 Facebook"]],
+        ["#cp", ["🔗 Copy link"]],
+        ["#aib", ["Add"]],
+      ];
+      var i18n = [];
+      I18N.forEach(function (g) {
+        var els = document.querySelectorAll(g[0]),
+          html = g[2] === 1;
+        for (var i = 0; i < els.length && i < g[1].length; i++) {
+          i18n.push({
+            el: els[i],
+            bn: html ? els[i].innerHTML : els[i].textContent,
+            en: g[1][i],
+            h: html,
+          });
+        }
+      });
+      function setLang(l) {
+        L = l === "en" ? "en" : "bn";
+        i18n.forEach(function (o) {
+          if (o.h) o.el.innerHTML = L === "en" ? o.en : o.bn;
+          else o.el.textContent = L === "en" ? o.en : o.bn;
+        });
+        document.documentElement.lang = L;
+        document.title = L === "en" ? ENTTL : BNTTL;
+        $("am").innerHTML = rows(A);
+        $("pm").innerHTML = rows(P);
+        $("lg").textContent = L === "en" ? "🌐 বাংলা" : "🌐 English";
+        $("mt").textContent = on
+          ? T("🔊 গান বন্ধ করুন", "🔊 Turn music off")
+          : T("🔇 গান চালু করুন", "🔇 Turn music on");
+        $("as").textContent = sc
+          ? T("⏸ অটো স্ক্রল বন্ধ", "⏸ Pause auto-scroll")
+          : T("⏬ অটো স্ক্রল চালু", "⏬ Start auto-scroll");
+        setHi();
+        setLinks();
+        hintText();
+        try {
+          localStorage.setItem("lang", L);
+        } catch (e) {}
+      }
+      $("lg").onclick = function () {
+        setLang(L === "en" ? "bn" : "en");
+      };
+
+      /* ---------- শেয়ার বাটন ---------- */
+      if (navigator.share) {
+        var shb = $("sh");
+        shb.hidden = false;
+        shb.onclick = function () {
+          try {
+            navigator
+              .share({ title: document.title, text: SHARE, url: URLX })
+              .catch(function () {});
+          } catch (e) {}
+        };
+      }
+
+      /* ---------- হোম স্ক্রিনে যোগ করুন ---------- */
+      var hint = "";
+      function hintText() {
+        if (hint === "ios")
+          $("aix").textContent = T(
+            "iPhone-এ শেয়ার ↥ চেপে “হোম স্ক্রিনে যোগ করুন” বেছে নিন।",
+            "On iPhone: tap Share ↥, then “Add to Home Screen”.",
+          );
+        else if (hint === "pwa")
+          $("aix").textContent = T(
+            "কার্ডটি ফোনে অ্যাপের মতো সেভ করে রাখুন।",
+            "Save this card on your phone like an app.",
+          );
+      }
+      (function () {
+        var off = false;
+        try {
+          off = localStorage.getItem("a2hs") === "1";
+        } catch (e) {}
+        if (
+          off ||
+          matchMedia("(display-mode: standalone)").matches ||
+          navigator.standalone
+        )
+          return;
+        var def = null;
+        function show() {
+          setTimeout(function () {
+            $("ai").hidden = false;
+          }, 6000);
+        }
+        $("aiz").onclick = function () {
+          $("ai").hidden = true;
+          try {
+            localStorage.setItem("a2hs", "1");
+          } catch (e) {}
+        };
+        $("aib").onclick = function () {
+          $("ai").hidden = true;
+          if (def) def.prompt();
+        };
+        addEventListener("beforeinstallprompt", function (e) {
+          e.preventDefault();
+          def = e;
+          hint = "pwa";
+          $("aib").hidden = false;
+          hintText();
+          show();
+        });
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+          hint = "ios";
+          hintText();
+          show();
+        }
+      })();
+
+      /* ---------- পদ্ম-পাপড়ি বার্স্ট ও খোলার শব্দ ---------- */
+      function burst() {
+        if (rm) return;
+        var p = $("pt");
+        for (var i = 0; i < 28; i++) {
+          var s = document.createElement("i");
+          s.textContent = i % 4 === 0 ? "❁" : "🪷";
+          s.style.left = 3 + Math.random() * 94 + "%";
+          s.style.setProperty(
+            "--dx",
+            (Math.random() * 180 - 90).toFixed(0) + "px",
+          );
+          s.style.setProperty(
+            "--ro",
+            (Math.random() * 720 - 360).toFixed(0) + "deg",
+          );
+          s.style.animationDuration =
+            (2.2 + Math.random() * 1.8).toFixed(2) + "s";
+          s.style.animationDelay = (Math.random() * 0.6).toFixed(2) + "s";
+          s.style.fontSize = (16 + Math.random() * 18).toFixed(0) + "px";
+          p.appendChild(s);
+          (function (el) {
+            setTimeout(function () {
+              if (el.parentNode) el.parentNode.removeChild(el);
+            }, 5000);
+          })(s);
+        }
+      }
+      var AC = window.AudioContext || window.webkitAudioContext;
+      function chime() {
+        if (!AC) return;
+        try {
+          var c = new AC(),
+            t0 = c.currentTime;
+          [329.63, 493.88, 659.25].forEach(function (f, i) {
+            var o = c.createOscillator(),
+              g = c.createGain(),
+              st = t0 + i * 0.13;
+            o.type = "sine";
+            o.frequency.value = f;
+            g.gain.setValueAtTime(0, st);
+            g.gain.linearRampToValueAtTime(0.16, st + 0.04);
+            g.gain.exponentialRampToValueAtTime(0.0001, st + 1.7);
+            o.connect(g);
+            g.connect(c.destination);
+            o.start(st);
+            o.stop(st + 1.8);
+          });
+          setTimeout(function () {
+            if (c.close) c.close();
+          }, 3000);
+        } catch (e) {}
+      }
+
+      /* ---------- অফলাইনে চালানোর জন্য ক্যাশ ---------- */
+      if (
+        "serviceWorker" in navigator &&
+        (location.protocol === "https:" ||
+          location.hostname === "localhost" ||
+          location.hostname === "127.0.0.1")
+      ) {
+        addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js").catch(function () {});
+        });
+      }
+
+      /* ---------- শুরু ---------- */
+      var saved = "bn";
+      try {
+        saved = localStorage.getItem("lang") || "bn";
+      } catch (e) {}
+      setLang(saved);
     </script>
   </body>
 </html>
