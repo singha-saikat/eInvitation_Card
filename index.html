@@ -230,25 +230,88 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 26px;
-        background: radial-gradient(
-          circle at 50% 38%,
-          #451116 0,
-          #1c0908 58%,
-          #0e0505
-        );
+        gap: 32px;
+        background:
+          linear-gradient(#00000099, #00000099),
+          url("images/cover-v2.jpg") center/cover no-repeat;
         transition: opacity 0.8s;
       }
+      .env-w {
+        position: relative;
+        width: min(90vw, 320px);
+        height: 200px;
+        background: #fff4dc;
+        border-radius: 4px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+        cursor: pointer;
+      }
+      .env-f {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: min(45vw, 160px) solid transparent;
+        border-right: min(45vw, 160px) solid transparent;
+        border-top: 110px solid var(--g);
+        transform-origin: top;
+        transition: transform 0.6s 0.2s ease-in-out;
+        z-index: 3;
+      }
+      .env-b {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 110px;
+        background: #c9861c;
+        border-radius: 0 0 4px 4px;
+        z-index: 2;
+        clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+      }
+      .env-l {
+        position: absolute;
+        width: 90%;
+        height: 85%;
+        background: white;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.6s 0.8s ease-in-out;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #eee;
+      }
+      .env-t {
+        color: #3a1208;
+        font-weight: 700;
+        font-size: clamp(16px, 4vw, 20px);
+        line-height: 1.4;
+      }
+      #open.active .env-f {
+        transform: rotateX(180deg);
+        z-index: 0;
+      }
+      #open.active .env-l {
+        transform: translateY(-90px);
+      }
+      #open.active #ob {
+        opacity: 0;
+        pointer-events: none;
+      }
       #open .lo {
-        width: clamp(88px, 26vw, 120px);
-        height: clamp(88px, 26vw, 120px);
+        width: 48px;
+        height: 48px;
         fill: none;
         stroke: var(--g);
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        filter: drop-shadow(0 0 26px #e3a72f99);
-        animation: lo 5s ease-in-out infinite;
+        stroke-width: 2.5;
+        margin: 0 auto 12px;
       }
       @keyframes lo {
         50% {
@@ -1006,8 +1069,14 @@
     <div id="sp"></div>
     <div id="pt" aria-hidden="true"></div>
     <div id="open">
-      <svg class="lo" aria-hidden="true"><use href="#ic-wheel" /></svg>
-      <p class="hi" id="hi" hidden></p>
+      <div class="env-w" id="ev">
+        <div class="env-f"></div>
+        <div class="env-l">
+          <svg class="lo" aria-hidden="true"><use href="#ic-wheel" /></svg>
+          <div class="env-t" id="et">আমন্ত্রণপত্র</div>
+        </div>
+        <div class="env-b"></div>
+      </div>
       <button id="ob">
         <svg class="i" aria-hidden="true"><use href="#ic-lotus" /></svg>
         <span class="tx">আমন্ত্রণপত্র খুলুন</span>
@@ -1472,21 +1541,26 @@
 
       $("open").style.display = "";
       document.documentElement.style.overflow = "hidden";
-      $("ob").onclick = function () {
+      function openInvitation() {
         var o = $("open");
-        o.style.opacity = 0;
+        o.classList.add("active");
         setTimeout(function () {
-          o.style.display = "none";
-        }, 800);
-        document.documentElement.style.overflow = "";
-        burst();
-        chime();
-        start();
-        if (rm) return;
-        setTimeout(function () {
-          if (!sc && window.scrollY < 50) sgo();
-        }, 1200);
-      };
+          o.style.opacity = 0;
+          setTimeout(function () {
+            o.style.display = "none";
+          }, 800);
+          document.documentElement.style.overflow = "";
+          burst();
+          chime();
+          start();
+          if (rm) return;
+          setTimeout(function () {
+            if (!sc && window.scrollY < 50) sgo();
+          }, 1200);
+        }, 2200);
+      }
+      $("ob").onclick = openInvitation;
+      $("ev").onclick = openInvitation;
 
       var pg = $("pg");
       function updPg() {
@@ -1566,21 +1640,18 @@
         guest = v.replace(/[<>]/g, "").trim().slice(0, 40);
       })();
       function setHi() {
-        var el = $("hi");
-        if (!guest) {
-          el.hidden = true;
-          return;
-        }
+        var el = $("et");
+        if (!guest) return;
         el.textContent = T(
           "প্রিয় " + guest + ", আপনার জন্য বিশেষ আমন্ত্রণ 🌸",
           "Dear " + guest + ", a special invitation for you 🌸",
         );
-        el.hidden = false;
       }
 
       /* ---------- বাংলা / English ---------- */
       var I18N = [
         ["#ob .tx", ["Open the Invitation"]],
+        ["#et", ["Invitation Card"]],
         [
           ".cover .s",
           ["National and religious festival of Theravada Buddhists"],
