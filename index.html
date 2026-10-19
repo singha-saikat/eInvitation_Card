@@ -227,22 +227,34 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 18px;
-        background:
-          linear-gradient(#140707cc, #140707ee),
-          url("images/cover-1200.jpg") center/cover;
-        background:
-          linear-gradient(#140707cc, #140707ee),
-          image-set(
-              url("images/cover-1200.webp") type("image/webp"),
-              url("images/cover-1200.jpg") type("image/jpeg")
-            )
-            center/cover;
+        gap: 26px;
+        background: radial-gradient(
+          circle at 50% 38%,
+          #451116 0,
+          #1c0908 58%,
+          #0e0505
+        );
         transition: opacity 0.8s;
       }
+      #open .lo {
+        width: clamp(88px, 26vw, 120px);
+        height: clamp(88px, 26vw, 120px);
+        fill: none;
+        stroke: var(--g);
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 0 26px #e3a72f99);
+        animation: lo 5s ease-in-out infinite;
+      }
+      @keyframes lo {
+        50% {
+          transform: translateY(-9px);
+        }
+      }
       #open p {
-        font-size: 20px;
-        color: var(--g);
+        font-size: 19px;
+        color: #ffe9b0;
       }
       #ob {
         background: var(--g);
@@ -286,6 +298,11 @@
       .wh {
         width: 60px;
         height: 60px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
         color: var(--g);
         margin-bottom: 8px;
         animation: sp 30s linear infinite;
@@ -569,9 +586,6 @@
         stroke-linejoin: round;
       }
       #ob,
-      #mt,
-      #as,
-      #lg,
       #aiz {
         display: inline-flex;
         align-items: center;
@@ -583,8 +597,7 @@
         height: 22px;
         stroke-width: 1.6;
       }
-      #mt .i,
-      #as .i {
+      #tb .i {
         width: 17px;
         height: 17px;
       }
@@ -615,33 +628,38 @@
         opacity: 1;
         transform: none;
       }
-      #mt {
+      #tb {
         position: fixed;
         top: calc(12px + env(safe-area-inset-top, 0px));
         right: 12px;
         z-index: 40;
-        height: 42px;
-        padding: 0 16px;
-        border-radius: 999px;
-        border: 1px solid var(--g);
-        background: #140707dd;
-        color: var(--cr);
-        font-size: 15px;
-        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid #e3a72f66;
+        border-radius: 14px;
+        background: #140707e0;
+        backdrop-filter: blur(8px);
       }
-      #as {
-        position: fixed;
-        top: calc(62px + env(safe-area-inset-top, 0px));
-        right: 12px;
-        z-index: 40;
+      #tb button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         height: 38px;
         padding: 0 14px;
-        border-radius: 999px;
-        border: 1px solid var(--g);
-        background: #140707dd;
+        border: 0;
+        border-top: 1px solid #e3a72f2e;
+        background: none;
         color: var(--cr);
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 600;
+        white-space: nowrap;
+      }
+      #tb button:first-child {
+        border-top: 0;
+      }
+      #tb button:hover {
+        background: #e3a72f1f;
       }
       #yp {
         display: none;
@@ -721,20 +739,6 @@
           transform: translateY(-105vh);
           opacity: 0;
         }
-      }
-      #lg {
-        position: fixed;
-        top: calc(106px + env(safe-area-inset-top, 0px));
-        right: 12px;
-        z-index: 40;
-        height: 38px;
-        padding: 0 14px;
-        border-radius: 999px;
-        border: 1px solid var(--g);
-        background: #140707dd;
-        color: var(--cr);
-        font-size: 14px;
-        font-weight: 600;
       }
       .hi {
         max-width: 88vw;
@@ -836,6 +840,9 @@
         .wh {
           animation: none;
         }
+        #open .lo {
+          animation: none;
+        }
         h1 {
           animation: none;
           background-position: 0 0;
@@ -851,9 +858,7 @@
         #sp,
         #pg,
         #open,
-        #mt,
-        #as,
-        #lg,
+        #tb,
         #ai,
         #pt,
         #yp,
@@ -890,6 +895,13 @@
   </head>
   <body>
     <svg id="ic" hidden aria-hidden="true">
+      <symbol id="ic-wheel" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" />
+        <circle cx="32" cy="32" r="6" />
+        <path
+          d="M32 6v20M32 38v20M6 32h20M38 32h20M13.6 13.6l14 14M36.4 36.4l14 14M50.4 13.6l-14 14M27.6 36.4l-14 14"
+        />
+      </symbol>
       <symbol id="ic-lotus" viewBox="0 0 24 24">
         <path
           d="M12 4.5c1.9 2.4 2.8 4.5 2.8 6.2 0 2-1.2 3.6-2.8 4.3-1.6-.7-2.8-2.3-2.8-4.3 0-1.7.9-3.8 2.8-6.2Z"
@@ -974,9 +986,7 @@
         #open,
         #sp,
         #pg,
-        #mt,
-        #as,
-        #lg,
+        #tb,
         #ai,
         #pt,
         #yp,
@@ -993,25 +1003,27 @@
     <div id="sp"></div>
     <div id="pt" aria-hidden="true"></div>
     <div id="open">
-      <p>জয়তু বুদ্ধ সাসনম</p>
+      <svg class="lo" aria-hidden="true"><use href="#ic-wheel" /></svg>
       <p class="hi" id="hi" hidden></p>
       <button id="ob">
         <svg class="i" aria-hidden="true"><use href="#ic-lotus" /></svg>
         <span class="tx">আমন্ত্রণপত্র খুলুন</span>
       </button>
     </div>
-    <button id="mt" aria-label="Music">
-      <svg class="i" aria-hidden="true"><use href="#ic-music" /></svg>
-      <span class="tx">গান বন্ধ করুন</span>
-    </button>
-    <button id="as" aria-label="Auto scroll">
-      <svg class="i" aria-hidden="true"><use href="#ic-down" /></svg>
-      <span class="tx">অটো স্ক্রল চালু</span>
-    </button>
-    <button id="lg" type="button" aria-label="Language">
-      <svg class="i" aria-hidden="true"><use href="#ic-globe" /></svg>
-      <span class="tx">English</span>
-    </button>
+    <div id="tb">
+      <button id="mt" type="button" aria-label="Music">
+        <svg class="i" aria-hidden="true"><use href="#ic-music" /></svg>
+        <span class="tx">গান বন্ধ করুন</span>
+      </button>
+      <button id="as" type="button" aria-label="Auto scroll">
+        <svg class="i" aria-hidden="true"><use href="#ic-down" /></svg>
+        <span class="tx">অটো স্ক্রল চালু</span>
+      </button>
+      <button id="lg" type="button" aria-label="Language">
+        <svg class="i" aria-hidden="true"><use href="#ic-globe" /></svg>
+        <span class="tx">English</span>
+      </button>
+    </div>
     <div id="yp"><div id="yf"></div></div>
     <div id="ai" hidden>
       <span id="aix"></span>
@@ -1022,20 +1034,7 @@
     </div>
 
     <div class="cover">
-      <svg
-        class="wh"
-        viewBox="0 0 64 64"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        aria-hidden="true"
-      >
-        <circle cx="32" cy="32" r="26" />
-        <circle cx="32" cy="32" r="6" />
-        <path
-          d="M32 6v20M32 38v20M6 32h20M38 32h20M13.6 13.6l14 14M36.4 36.4l14 14M50.4 13.6l-14 14M27.6 36.4l-14 14"
-        />
-      </svg>
+      <svg class="wh" aria-hidden="true"><use href="#ic-wheel" /></svg>
       <div class="top">জয়তু বুদ্ধ সাসনম</div>
       <div class="s">থেরবাদী বৌদ্ধদের জাতীয় ও ধর্মীয় উৎসব</div>
       <h1>
