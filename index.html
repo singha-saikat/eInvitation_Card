@@ -263,26 +263,29 @@
           transform: scale(1.14);
         }
       }
-      /* সোনালি ফ্রেমের ছবির কার্ড */
+      /* সোনালি বর্ডারের গাঢ় কার্ড (লেখা স্পষ্ট পড়ার জন্য) */
       .oc {
         position: relative;
         z-index: 1;
         width: min(84vw, 330px);
         flex: none;
-        padding: 9px 9px 22px;
+        padding: 10px;
+        border: 2px solid transparent;
         border-radius: 22px;
-        background: linear-gradient(
-          155deg,
-          #f8e3ad 0,
-          #c9861c 26%,
-          #8b560f 48%,
-          #e6c684 68%,
-          #b8791a 100%
-        );
+        background:
+          linear-gradient(#1c0909, #120404) padding-box,
+          linear-gradient(
+              155deg,
+              #f8e3ad 0,
+              #c9861c 26%,
+              #8b560f 48%,
+              #e6c684 68%,
+              #b8791a 100%
+            )
+            border-box;
         box-shadow:
           0 28px 60px #000000b8,
-          0 0 0 1px #e3a72f59,
-          inset 0 1px 0 #fff8e0b3,
+          inset 0 0 0 1px #e3a72f2e,
           0 0 46px #e3a72f2e;
         animation: of 7s ease-in-out infinite;
       }
@@ -335,35 +338,37 @@
         animation: sp 26s linear infinite;
       }
       .ot {
-        padding: 26px 8px 0;
+        padding: 22px 10px 14px;
         text-align: center;
       }
       .ok {
         font-size: 11px;
         letter-spacing: 0.2em;
-        color: #e8c67c;
+        color: #f0c877;
       }
       .oh {
         margin-top: 9px;
         font-size: clamp(17px, 4.7vw, 21px);
         font-weight: 700;
         line-height: 1.4;
-        background: linear-gradient(#fff7e0 8%, #f4cf7c 56%, #d79f26 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        color: #ffe9b0;
+        text-shadow: 0 2px 10px #000000a6;
       }
       .oh em {
         font-style: normal;
+        color: #ffce5c;
       }
       .od {
         margin-top: 9px;
         font-size: 12.5px;
-        color: #f0d9a8;
-        opacity: 0.92;
+        color: #f3d69b;
       }
       #open .hi {
-        margin-top: 13px;
+        margin-top: 14px;
+        padding: 9px 12px;
+        border: 1px solid #e3a72f47;
+        border-radius: 12px;
+        background: #e3a72f1f;
         font-size: 14.5px;
         line-height: 1.55;
         color: #ffe9b0;
@@ -416,7 +421,7 @@
           width: min(70vw, 268px);
         }
         .ot {
-          padding-top: 22px;
+          padding-top: 18px;
         }
         .oh {
           font-size: 16px;
