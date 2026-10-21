@@ -24,6 +24,13 @@
     <link
       rel="preload"
       as="image"
+      type="image/jpeg"
+      href="images/opening-bg.jpg"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
       type="image/webp"
       href="images/cover-1200.webp"
     />
@@ -231,40 +238,192 @@
         align-items: center;
         justify-content: center;
         gap: 26px;
-        background:
-          linear-gradient(#00000099, #00000099),
-          #1a4a91 url("images/opening-bg.jpg") center/contain no-repeat;
+        padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+        overflow: hidden;
+        background: radial-gradient(
+          120% 64% at 50% 6%,
+          #5c1a1d 0,
+          #2c0d0c 46%,
+          #0c0404 100%
+        );
         transition: opacity 0.8s;
       }
-      #open .lo {
-        width: clamp(88px, 26vw, 120px);
-        height: clamp(88px, 26vw, 120px);
-        fill: none;
-        stroke: var(--g);
-        stroke-width: 3;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        filter: drop-shadow(0 0 26px #e3a72f99);
-        animation: lo 5s ease-in-out infinite;
+      /* নরম সোনালি আভা */
+      #open::before {
+        content: "";
+        position: absolute;
+        inset: -18% -14%;
+        background: radial-gradient(closest-side, #e3a72f30, #e3a72f00 72%);
+        animation: og 8s ease-in-out infinite;
+        pointer-events: none;
       }
-      @keyframes lo {
+      @keyframes og {
         50% {
-          transform: translateY(-9px);
+          opacity: 0.55;
+          transform: scale(1.14);
         }
       }
-      #open p {
-        font-size: 19px;
+      /* সোনালি ফ্রেমের ছবির কার্ড */
+      .oc {
+        position: relative;
+        z-index: 1;
+        width: min(84vw, 330px);
+        flex: none;
+        padding: 9px 9px 22px;
+        border-radius: 22px;
+        background: linear-gradient(
+          155deg,
+          #f8e3ad 0,
+          #c9861c 26%,
+          #8b560f 48%,
+          #e6c684 68%,
+          #b8791a 100%
+        );
+        box-shadow:
+          0 28px 60px #000000b8,
+          0 0 0 1px #e3a72f59,
+          inset 0 1px 0 #fff8e0b3,
+          0 0 46px #e3a72f2e;
+        animation: of 7s ease-in-out infinite;
+      }
+      @keyframes of {
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .oi {
+        position: relative;
+        border-radius: 14px;
+        background: #170808;
+        box-shadow: inset 0 0 0 1px #00000066;
+      }
+      .oi img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+      }
+      .oi::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 14px;
+        background: linear-gradient(#00000000 58%, #1a0808d9 100%);
+        pointer-events: none;
+      }
+      /* ছবির নিচে ওভারল্যাপ করা ঘূর্ণায়মান ধর্মচক্র */
+      .ow {
+        position: absolute;
+        left: 50%;
+        bottom: -18px;
+        z-index: 2;
+        box-sizing: border-box;
+        width: 44px;
+        height: 44px;
+        margin-left: -22px;
+        padding: 7px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 30%, #3a1211, #140606);
+        box-shadow:
+          0 0 0 1.5px #e3a72fb3,
+          0 0 24px #e3a72f80;
+        fill: none;
+        stroke: var(--g);
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        animation: sp 26s linear infinite;
+      }
+      .ot {
+        padding: 26px 8px 0;
+        text-align: center;
+      }
+      .ok {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        color: #e8c67c;
+      }
+      .oh {
+        margin-top: 9px;
+        font-size: clamp(17px, 4.7vw, 21px);
+        font-weight: 700;
+        line-height: 1.4;
+        background: linear-gradient(#fff7e0 8%, #f4cf7c 56%, #d79f26 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .oh em {
+        font-style: normal;
+      }
+      .od {
+        margin-top: 9px;
+        font-size: 12.5px;
+        color: #f0d9a8;
+        opacity: 0.92;
+      }
+      #open .hi {
+        margin-top: 13px;
+        font-size: 14.5px;
+        line-height: 1.55;
         color: #ffe9b0;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        text-shadow: 0 2px 8px #000000a6;
       }
       #ob {
-        background: var(--g);
-        color: #3a1208;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        flex: none;
+        padding: 14px 32px;
         border: 0;
         border-radius: 999px;
-        padding: 14px 34px;
-        font-size: 20px;
+        background: linear-gradient(#f8dd97, #e3a72f 48%, #c9861c);
+        color: #3a1208;
+        font-size: 17px;
         font-weight: 700;
+        box-shadow:
+          0 14px 32px #e3a72f3d,
+          inset 0 1px 0 #fffbe9b8;
+        transition: transform 0.2s;
+      }
+      /* বাটনে আলোর ঝলক */
+      #ob::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -60%;
+        width: 42%;
+        height: 100%;
+        background: linear-gradient(90deg, #ffffff00, #ffffffa6, #ffffff00);
+        transform: skewX(-18deg);
+        animation: osh 3.6s ease-in-out infinite;
+      }
+      @keyframes osh {
+        0%,
+        52% {
+          left: -60%;
+        }
+        86%,
+        100% {
+          left: 132%;
+        }
+      }
+      #ob:active {
+        transform: scale(0.97);
+      }
+      @media (max-height: 700px) {
+        .oc {
+          width: min(70vw, 268px);
+        }
+        .ot {
+          padding-top: 22px;
+        }
+        .oh {
+          font-size: 16px;
+        }
+        #open .hi {
+          font-size: 13px;
+        }
       }
       .cover {
         --ih: min(76vw, 680px);
@@ -841,7 +1000,10 @@
         .wh {
           animation: none;
         }
-        #open .lo {
+        .oc,
+        .ow,
+        #ob::after,
+        #open::before {
           animation: none;
         }
         h1 {
@@ -1004,8 +1166,23 @@
     <div id="sp"></div>
     <div id="pt" aria-hidden="true"></div>
     <div id="open">
-      <svg class="lo" aria-hidden="true"><use href="#ic-wheel" /></svg>
-      <p class="hi" id="hi" hidden></p>
+      <div class="oc">
+        <div class="oi">
+          <img
+            src="images/opening-bg.jpg"
+            alt="দুপচর তক্ষশীলা বৌদ্ধ বিহার"
+            width="1872"
+            height="1582"
+          />
+          <svg class="ow" aria-hidden="true"><use href="#ic-wheel" /></svg>
+        </div>
+        <div class="ot">
+          <div class="ok">জয়তু বুদ্ধ সাসনম</div>
+          <div class="oh">দানোত্তম শুভ <em>কঠিন চীবরদান</em></div>
+          <div class="od">১৬ নভেম্বর ২০২৬ · লাকসাম, কুমিল্লা</div>
+          <p class="hi" id="hi" hidden></p>
+        </div>
+      </div>
       <button id="ob">
         <svg class="i" aria-hidden="true"><use href="#ic-lotus" /></svg>
         <span class="tx">আমন্ত্রণপত্র খুলুন</span>
@@ -1579,6 +1756,9 @@
       /* ---------- বাংলা / English ---------- */
       var I18N = [
         ["#ob .tx", ["Open the Invitation"]],
+        ["#open .ok", ["Jayatu Buddha Sasanam"]],
+        ["#open .oh", ["Danottama Shubho <em>Kathina Chibor Dan</em>"], 1],
+        ["#open .od", ["16 November 2026 · Laksam, Cumilla"]],
         [
           ".cover .s",
           ["National and religious festival of Theravada Buddhists"],
