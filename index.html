@@ -913,7 +913,7 @@
       }
       @keyframes rise {
         10% {
-          opacity: 0.9;
+          opacity: 0.5;
         }
         100% {
           transform: translateY(-105vh);
@@ -1623,7 +1623,8 @@
       setInterval(tick, 1000);
 
       if (!rm) {
-        for (var k = 0; k < 22; k++) {
+        var nsp = innerWidth < 560 ? 9 : innerWidth < 900 ? 15 : 22;
+        for (var k = 0; k < nsp; k++) {
           var sp = document.createElement("i");
           sp.style.left = Math.random() * 100 + "%";
           sp.style.animationDuration = 8 + Math.random() * 10 + "s";
