@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://singha-saikat.github.io/eInvitation_Card/sitemap.xml
