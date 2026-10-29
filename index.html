@@ -106,6 +106,15 @@
       }
     </script>
     <style>
+      .date {
+        margin: 14px 0 2px;
+        font-size: clamp(24px, 6.5vw, 32px);
+        font-weight: 700;
+        color: var(--g);
+        font-family: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+        font-variant-numeric: lining-nums;
+        letter-spacing: 0.015em;
+      }
       @font-face {
         font-family: "Hind Siliguri";
         font-style: normal;
@@ -533,6 +542,17 @@
         font-size: clamp(24px, 6.5vw, 32px);
         font-weight: 700;
         color: var(--g);
+        font-family: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+        font-variant-numeric: lining-nums;
+        letter-spacing: 0.015em;
+      }
+      .date-one {
+        font-family: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+        font-size: 2 rem;
+        font-weight: 700;
+        font-style: normal;
+        letter-spacing: normal;
+        transform: none;
       }
       .pl {
         font-size: 16px;
@@ -1207,7 +1227,7 @@
           <div class="ok">জয়তু বুদ্ধ সাসনম</div>
           <div class="oh">দানোত্তম শুভ <em>কঠিন চীবরদান</em></div>
           <div class="ov">দুপচর তক্ষশীলা বৌদ্ধ বিহার</div>
-          <div class="od"> ১৬ নভেম্বর ২০২৬ · লাকসাম, কুমিল্লা</div>
+          <div class="od date "> ১৬ নভেম্বর ২০২৬ </div>
           <p class="hi" id="hi" hidden></p>
         </div>
       </div>
@@ -1329,8 +1349,7 @@
       <div class="paper">
         <h2>স্থান</h2>
         <p class="t">
-          <b>দুপচর তক্ষশীলা বৌদ্ধ বিহার প্রাঙ্গণ</b><br />লাকসাম, কুমিল্লা<br />১৬
-          নভেম্বর ২০২৬
+          <b>দুপচর তক্ষশীলা বৌদ্ধ বিহার প্রাঙ্গণ</b><br />লাকসাম, কুমিল্লা<br /><span class="date-one">১৬ নভেম্বর ২০২৬</span> 
         </p>
         <div class="actions">
           <a class="btn" id="dir" target="_blank" rel="noopener"
@@ -1390,8 +1409,8 @@
       var A = [
         [
           "সভাপতি",
-          "সদ্ধর্মবারিধি প্রিয়ানন্দ মহাথের~অধ্যক্ষ, মায়ানী সুদর্শন বিহার",
-          "Saddhammabaridhi Priyananda Mahathero~Chief Incumbent, Mayani Sudarshan Vihara",
+          "সদ্ধর্মবারিধি প্রিয়ানন্দ মহাথের~অধ্যক্ষ, মায়ানী সুদর্শন বিহার, মিরসরাই।",
+          "Saddhammabaridhi Priyananda Mahathero~Chief Incumbent, Mayani Sudarshan Vihara,Mirsorai",
         ],
         [
           "প্রধান অতিথি",
@@ -1400,8 +1419,8 @@
         ],
         [
           "প্রধান জ্ঞাতি",
-          "ভদন্ত শরণসেন মহাথের~অধ্যক্ষ, তেকোটা সদ্ধর্মদোয়া বিহার",
-          "Ven. Saranasena Mahathero~Chief Incumbent, Tekota Saddhammadoa Vihara",
+          "ভদন্ত শরণসেন মহাথের~অধ্যক্ষ, তেকোটা সদ্ধর্মোবিকাশ বিহার,পটিয়া",
+          "Ven. Saranasena Mahathero~Chief Incumbent, Tekota Saddhammabikash Vihara,Patiya",
         ],
         [
           "উদ্বোধক",
@@ -1420,7 +1439,7 @@
         ],
         [
           "সদ্ধর্মদেশক",
-          "ভদন্ত শীলপ্রিয় থের~অধ্যক্ষ, আলোকবিহার শাকাপুরি প্যাগোডা|ভদন্ত রতনজ্যোতি থের~অধ্যক্ষ, কোয়ার ইন্দ্রধাম বৌদ্ধ বিহার|ভদন্ত বিশুদ্ধানন্দ থের~অধ্যক্ষ, ছোট চাঁদপুর পূর্ণজ্যোতি বৌদ্ধ বিহার",
+          "ভদন্ত শীলপ্রিয় থের~অধ্যক্ষ, আলোকদিয়া শাক্যমুনি প্যাগোডা, লালমাই|ভদন্ত রতনজ্যোতি থের~অধ্যক্ষ, কোঁয়ার ইন্দ্রধাম বৌদ্ধ বিহার, লাকসাম|ভদন্ত বিশুদ্ধানন্দ থের~অধ্যক্ষ, ছোট চাঁদপুর পূর্ণজ্যোতি বৌদ্ধ বিহার, লাকসাম",
           "Ven. Silapriya Thero~Chief Incumbent, Alokabihara Shakapuri Pagoda|Ven. Ratanajyoti Thero~Chief Incumbent, Koar Indradham Buddhist Vihara|Ven. Visuddhananda Thero~Chief Incumbent, Chhoto Chandpur Purnajyoti Buddhist Vihara",
         ],
         [
@@ -1447,13 +1466,13 @@
         ],
         [
           "আশীর্বাদক",
-          "ভদন্ত সদ্ধর্মবারিধি প্রিয়ানন্দ মহাথের~অধ্যক্ষ, মায়ানী সুদর্শন বিহার",
-          "Ven. Saddhammabaridhi Priyananda Mahathero~Chief Incumbent, Mayani Sudarshan Vihara",
+          "ভদন্ত সদ্ধর্মবারিধি প্রিয়ানন্দ মহাথের~অধ্যক্ষ, মায়ানী সুদর্শন বিহার, মিরসরাই।",
+          "Ven. Saddhammabaridhi Priyananda Mahathero~Chief Incumbent, Mayani Sudarshan Vihara,Mirsorai",
         ],
         [
           "প্রধান অতিথি",
-          "ভদন্ত শাসনানন্দ মহাথের~সভাপতি, সংঘরাজ ভিক্ষু মহামণ্ডলী",
-          "Ven. Sasanananda Mahathero~President, Sangharaj Bhikkhu Mahamandali",
+          "ভদন্ত শাসনানন্দ মহাথের~সভাপতি, সংঘরাজ ভিক্ষু মহামণ্ডল",
+          "Ven. Sasanananda Mahathero~President, Sangharaj Bhikkhu Mahamandal",
         ],
         [
           "উদ্বোধক",
@@ -1462,28 +1481,28 @@
         ],
         [
           "প্রধান সদ্ধর্মদেশক",
-          "ভদন্ত প্রজ্ঞানন্দ মহাথের~অধ্যক্ষ, হাসিমপুর বন বিহার",
-          "Ven. Pragyananda Mahathero~Chief Incumbent, Hasimpur Bana Vihara",
+          "ভদন্ত প্রজ্ঞানন্দ মহাথের~অধ্যক্ষ, হাশিমপুর বন বিহার, চন্দনাইশ",
+          "Ven. Pragyananda Mahathero~Chief Incumbent, Hasimpur Bana Vihara,Chandanaish",
         ],
         [
           "মুখ্য আলোচক",
-          "ভদন্ত রতনানন্দ থের~অধ্যক্ষ, উনাইনপুরা লংকারাম বিহার",
-          "Ven. Ratanananda Thero~Chief Incumbent, Unainpura longkharam Vihara",
+          "ভদন্ত রতনানন্দ থের~অধ্যক্ষ, উনাইনপুরা লংকারাম বিহার, পটিয়া",
+          "Ven. Ratanananda Thero~Chief Incumbent, Unainpura longkharam Vihara,Patiya",
         ],
         [
           "বিশেষ সদ্ধর্মদেশক",
-          "ভদন্ত উপানন্দ থের এমবিএ~উপাধ্যক্ষ, অরিন্দম সার্বজনীন মৈত্রী বিহার",
-          "Ven. Upananda Thero MBA~Deputy Chief Incumbent, Arindam Sarbojanin Maitri Vihara",
+          "ভদন্ত উপানন্দ থের এমবিএ~উপাধ্যক্ষ, অরিন্দম সার্বজনীন মৈত্রী বিহার, চট্টগ্রাম",
+          "Ven. Upananda Thero MBA~Deputy Chief Incumbent, Arindam Sarbojanin Maitri Vihara,Chattogram ",
         ],
         [
           "সদ্ধর্মদেশক",
-          "ভদন্ত প্রজ্ঞাবংশ মহাথের~অধ্যক্ষ, বাগৈগ্রাম ত্রিশরণ বৌদ্ধ বিহার|ভদন্ত প্রিয়বংশ থের~অধ্যক্ষ, লগ্নসার রোহিতগিরি তপোবন বৌদ্ধ বিহার",
-          "Ven. Pragyabangsha Mahathero~Chief Incumbent, Bagoigram Trisharan Buddhist Vihara|Ven. Priyabangsha Thero~Chief Incumbent, Lagnasar Rohitgiri Tapoban Buddhist Vihara",
+          "ভদন্ত প্রজ্ঞাবংশ মহাথের~অধ্যক্ষ, বাগৈগ্রাম ত্রিশরণ বৌদ্ধ বিহার, চৌদ্দগ্রাম|ভদন্ত প্রিয়বংশ থের~অধ্যক্ষ, লগ্নসার রোহিতগিরি তপোবন বৌদ্ধ বিহার,বরুড়া",
+          "Ven. Pragyabangsha Mahathero~Chief Incumbent, Bagoigram Trisharan Buddhist Vihara,Chauddagram|Ven. Priyabangsha Thero~Chief Incumbent, Lagnasar Rohitgiri Tapoban Buddhist Vihara,Barura",
         ],
-        ["মঙ্গলাচরণ", "ভদন্ত বিপুলানন্দ থের", "Ven. Vipulananda Thero"],
+        ["মঙ্গলাচরণ", "ভদন্ত বিপুলানন্দ থের ~ নূরপুর চাপাল চৈত্য বৌদ্ধ বিহার, লালমাই", "Ven. Vipulananda Thero ~Chief Incumbent, Nurpur Chapal Chaitya Buddhist Vihara,Lalmai"],
         [
           "স্বাগত ভাষণ",
-          "সৈকত সিংহ শচীন~সাধারণ সম্পাদক, উদ্যাপন পরিষদ ২০২৬",
+          "সৈকত সিংহ শচীন~সাধারণ সম্পাদক, উদ্‌যাপন পরিষদ ২০২৬",
           "Saikat Singha Sachin~General Secretary, Celebration Committee 2026",
         ],
         [
@@ -1499,7 +1518,7 @@
         [
           "সঞ্চালনায়",
           "রাজু সিংহ|স্নেহা সিংহ|দীপা সিংহ|প্রীতম সিংহ",
-          "Raju Singha|Promi Singha|Dipa Singha|Pritom Singha",
+          "Raju Singha|Senha Singha|Dipa Singha|Pritom Singha",
         ],
       ];
       var G = [
@@ -1953,62 +1972,6 @@
           } catch (e) {}
         };
       }
-
-      /* ---------- হোম স্ক্রিনে যোগ করুন ---------- */
-      var hint = "";
-      function hintText() {
-        if (hint === "ios")
-          $("aix").textContent = T(
-            "iPhone-এ শেয়ার ↥ চেপে “হোম স্ক্রিনে যোগ করুন” বেছে নিন।",
-            "On iPhone: tap Share ↥, then “Add to Home Screen”.",
-          );
-        else if (hint === "pwa")
-          $("aix").textContent = T(
-            "কার্ডটি ফোনে অ্যাপের মতো সেভ করে রাখুন।",
-            "Save this card on your phone like an app.",
-          );
-      }
-      (function () {
-        var off = false;
-        try {
-          off = localStorage.getItem("a2hs") === "1";
-        } catch (e) {}
-        if (
-          off ||
-          matchMedia("(display-mode: standalone)").matches ||
-          navigator.standalone
-        )
-          return;
-        var def = null;
-        function show() {
-          setTimeout(function () {
-            $("ai").hidden = false;
-          }, 6000);
-        }
-        $("aiz").onclick = function () {
-          $("ai").hidden = true;
-          try {
-            localStorage.setItem("a2hs", "1");
-          } catch (e) {}
-        };
-        $("aib").onclick = function () {
-          $("ai").hidden = true;
-          if (def) def.prompt();
-        };
-        addEventListener("beforeinstallprompt", function (e) {
-          e.preventDefault();
-          def = e;
-          hint = "pwa";
-          $("aib").hidden = false;
-          hintText();
-          show();
-        });
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-          hint = "ios";
-          hintText();
-          show();
-        }
-      })();
 
       /* ---------- পদ্ম-পাপড়ি বার্স্ট ও খোলার শব্দ ---------- */
       function burst() {
